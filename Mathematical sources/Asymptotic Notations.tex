@@ -1,0 +1,77 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Asymptotic Notations Big Oh - Omega - Theta}
+\author{Wenzhou Lyu}
+
+\begin{document}
+\maketitle
+
+\section{Asymptotic Notations}
+\begin{itemize}
+\item $O$ : Big-oh, upper bound.
+\item $\Omega$ : Big-omega, lower bound.
+\item $\theta$ : Theta, average bound.
+\end{itemize}
+% Once you're familiar with the editor, you can find various project setting in the Overleaf menu, accessed via the button in the very top left of the editor. To view tutorials, user guides, and further documentation, please visit our \href{https://www.overleaf.com/learn}{help library}, or head to our plans page to \href{https://www.overleaf.com/user/subscription/plans}{choose your plan}.
+\section{Big-oh}
+
+\subsection{Definition}
+\begin{gather*}
+f(n)=O(g(n)) \\
+\exists \ c,n_0\in R^+,\ \text{for} \ \forall n\geq n_0, \ \text{\ such that}\ f(n)\leq c*g(n)
+\end{gather*}
+
+\subsection{Example}
+\begin{gather*}
+    f(n) = 2n + 3 \\
+    2n+3 \leq 5n, \ \text{for} \ n\geq 1,\ \text{so} \ f(n)=O(n) \\
+    2n+3 \leq 5n^2, \ \text{for} \ n\geq 1,\ \text{so} \ f(n)=O(n^2) \\ 
+    2n+3 \leq 5n^3, \ \text{for} \ n\geq 1,\ \text{so} \ f(n)=O(n^3) \\ 
+    \ldots
+\end{gather*}
+
+\subsection{Bound}
+\begin{gather*}
+    \underbrace {n < n\log n<n^2<n^3<\ldots<2^n<3^n<\ldots<n^n}_{upper bound} \\ 
+     \underbrace {1<\log n<\sqrt{n}<n}_{lower bound}
+\end{gather*}
+
+\section{Big-omega}
+\subsection{Definition}
+\begin{gather*}
+f(n)=\Omega(g(n)) \\
+\exists \ c,n_0\in R^+,\ \text{for} \ \forall n\geq n_0, \ \text{\ such that}\ f(n)\geq c*g(n)
+\end{gather*}
+
+\subsection{Example}
+\begin{gather*}
+    f(n) = 2n + 3 \\
+    2n+3 \geq n, \ \text{for} \ n\geq 1,\ \text{so} \ f(n)=\Omega(n) \\
+    2n+3 \geq \log n, \ \text{for} \ n\geq 1,\ \text{so} \ f(n)=\Omega(\log n) \\ 
+    2n+3 \geq 1, \ \text{for} \ n\geq 0,\ \text{so} \ f(n)=\Omega(1) \\
+\end{gather*}
+\section{Some Complex Examples}
+\subsection{$f(n)=2n^2+n+4$}
+\begin{gather*}
+n^2 \leq f(n)\leq 9n^2 \\ 
+2n^2+n+4 \geq n^2, f(n) = \Omega(n^2) \\
+2n^2+n+4 \leq 2n^2+n^2+4n^2 = 9n^2, f(n) = O(9n^2)
+\end{gather*}
+\subsection{$f(n)=n^2 \log n + n $}
+\begin{gather*}
+n^2 \log n\leq n^2 \log n + n \leq 10n^2 \log n \\
+f(n) = O(10n^2 \log n), f(n) = \Omega(n^2 \log n) \\ 
+\end{gather*}
+\end{document}
